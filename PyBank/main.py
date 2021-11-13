@@ -2,7 +2,7 @@ import csv
 import os
 
 # set the relative file path 
-csvpath = os.path.join('PyBank','Resources','budget_data.csv')
+csvpath = os.path.join('.','PyBank','Resources','budget_data.csv')
 #print(csvpath)
 
 totalMonths = 0 # an accumulator
