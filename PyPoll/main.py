@@ -7,8 +7,7 @@ csvpath = os.path.join('Resources','election_data.csv')
 file_object = open('analysis.txt','w')
 
 totalVotes = 0 # an accumulator
-candidateList = []
-candidateDict = {}
+candidateDict = {} # the key:value pairs will be candidate:candidatevotes for each candidate
 
 # read election_data.csv
 with open(csvpath) as electionData:
@@ -17,12 +16,9 @@ with open(csvpath) as electionData:
 
     # read the header
     csvHeader = next(csvReader)
-    #print(f'CSV header: {csvHeader}')
 
     # read the rest of the data
     for r in csvReader:
-        thisID = r[0]
-        thisCounty = r[1]
         thisCandidate = r[2]
 
         totalVotes += 1
