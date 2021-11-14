@@ -1,0 +1,6 @@
+The total number of votes cast was: 3521001.
+Khan recieved 63%, with 2218231 votes.
+Correy recieved 20%, with 704200 votes.
+Li recieved 14%, with 492940 votes.
+O'Tooley recieved 3%, with 105630 votes.
+Winner: Khan

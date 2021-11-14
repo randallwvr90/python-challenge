@@ -31,20 +31,21 @@ with open(csvpath) as electionData:
         else:
             candidateDict[thisCandidate] = 1
 
+    # make a string named analysisInfo presenting the important information. Print the string to the terminal. 
     voteTotalInfo = 'The total number of votes cast was: ' + str(totalVotes) + '.'
 
-    candidateInfoStr = ''
+    candidateInfo = ''
     for candidate in candidateDict:
-        infoStr = f'{candidate} recieved {candidateDict[candidate]} votes.\n'
-        candidateInfoStr = candidateInfoStr +infoStr 
+        pct = round(candidateDict[candidate] / totalVotes * 100)
+        infoStr = f'{candidate} recieved {pct}%, with {candidateDict[candidate]} votes.\n'
+        candidateInfo = candidateInfo +infoStr 
 
+    max_key = max(candidateDict, key=candidateDict.get)
+    winnerInfo = f'Winner: {max_key}'
     analysisInfo = (voteTotalInfo + '\n'
-        + candidateInfoStr)
+        + candidateInfo + winnerInfo)
     print(analysisInfo)
 
     # write to the text file
-    #file_object.write(analysisInfo)
+    file_object.write(analysisInfo)
     file_object.close()
-
-    max_key = max(candidateDict, key=candidateDict.get)
-    print(max_key)
