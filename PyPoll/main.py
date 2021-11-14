@@ -26,10 +26,25 @@ with open(csvpath) as electionData:
         thisCandidate = r[2]
 
         totalVotes += 1
-        if thisCandidate !in candidateDict.keys()
+        if thisCandidate in candidateDict:
+            candidateDict[thisCandidate] +=1
+        else:
+            candidateDict[thisCandidate] = 1
 
-    analysisInfo = ('
-        ')
+    voteTotalInfo = 'The total number of votes cast was: ' + str(totalVotes) + '.'
+
+    candidateInfoStr = ''
+    for candidate in candidateDict:
+        infoStr = f'{candidate} recieved {candidateDict[candidate]} votes.\n'
+        candidateInfoStr = candidateInfoStr +infoStr 
+
+    analysisInfo = (voteTotalInfo + '\n'
+        + candidateInfoStr)
     print(analysisInfo)
+
+    # write to the text file
     #file_object.write(analysisInfo)
     file_object.close()
+
+    max_key = max(candidateDict, key=candidateDict.get)
+    print(max_key)
