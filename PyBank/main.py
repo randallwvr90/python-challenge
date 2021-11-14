@@ -16,6 +16,8 @@ greatestIncreaseDate = ''
 greatestDecrease = 0 # not rigorous - assumes negative profits occurred. 
 greatestDecreaseDate = ''
 
+file_object = open('analysis.txt','w')
+
 # read budget_data.csv
 with open(csvpath) as budgetData:
     # make a csv reader object
@@ -48,7 +50,16 @@ with open(csvpath) as budgetData:
             #print('here\'s the greatest decrease in profit!\r')
     averageProfitChange = totalProfitChange / totalMonths
     averageProfitChange = int(100 * averageProfitChange) / 100
-    print(f'The total profit over all {totalMonths} months was {totalProfit}')
-    print(f'The largest increase occurred on {greatestIncreaseDate} and was ${greatestIncrease}')
-    print(f'The largest decrease occurred on {greatestDecreaseDate} and was ${greatestDecrease}')
-    print(f'The total change in profit was {totalProfitChange} and the average change was {averageProfitChange}')
+    profitInfo = f'The total profit over all {totalMonths} months was {totalProfit}'
+    increaseInfo = f'The largest increase occurred on {greatestIncreaseDate} and was ${greatestIncrease}'
+    decreaseInfo = f'The largest decrease occurred on {greatestDecreaseDate} and was ${greatestDecrease}'
+    profitChangeInfo = f'The total change in profit was {totalProfitChange} and the average change was {averageProfitChange}'
+
+    analysisInfo = (profitInfo + '\n'
+        + increaseInfo + '\n'
+        + decreaseInfo + '\n'
+        + profitChangeInfo)
+
+    print(analysisInfo)
+    file_object.write(analysisInfo)
+    file_object.close()

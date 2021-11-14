@@ -1,0 +1,4 @@
+The total profit over all 86 months was 38382578
+The largest increase occurred on Feb-2012 and was $1170593
+The largest decrease occurred on Sep-2013 and was $-1196225
+The total change in profit was 38382578 and the average change was 446309.04
